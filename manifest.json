@@ -1,0 +1,27 @@
+{
+  "name": "AAS Маркет - Доставка",
+  "short_name": "AAS Маркет",
+  "description": "Мобильное приложение для доставки AAS Маркет",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0a1628",
+  "theme_color": "#00FF00",
+  "lang": "ru",
+  "icons": [
+    {
+      "src": "https://i.ibb.co.com/JwFkXNBj/Gemini-Generated-Image-xk90crxk90crxk90.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "https://i.ibb.co.com/JwFkXNBj/Gemini-Generated-Image-xk90crxk90crxk90.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["business", "productivity"],
+  "scope": "/"
+}
