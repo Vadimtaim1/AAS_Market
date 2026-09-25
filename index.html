@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>AAS Маркет - Доставка</title>
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#00FF00">
+    <link rel="icon" href="https://i.ibb.co.com/JwFkXNBj/Gemini-Generated-Image-xk90crxk90crxk90.jpg">
+    <link rel="apple-touch-icon" href="https://i.ibb.co.com/JwFkXNBj/Gemini-Generated-Image-xk90crxk90crxk90.jpg">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <script src="https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
@@ -3472,10 +3476,8 @@
                     tempDiv.id = 'qrTempReader';
                     tempDiv.style.display = 'none';
                     document.body.appendChild(tempDiv);
-                    
                     const tempScanner = new Html5Qrcode('qrTempReader');
                     const result = await tempScanner.scanFile(file, true);
-                    
                     tempDiv.remove();
                     scanStatus.textContent = '✅ QR распознан из фото!';
                     handleScannedCode(result);
@@ -3771,7 +3773,6 @@
                     startPeriodicSync();
                     updateCloudStatusUI('connected');
                     console.log('✅ Синхронизация запущена (каждые 2 сек)');
-                    
                     forceReloadEmployeesAndInvoices();
                     setInterval(forceReloadEmployeesAndInvoices, 5000);
                 } catch (err) {
@@ -3808,6 +3809,14 @@
             setTimeout(() => { initCloudSync(); }, 500);
 
         })();
+
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then((reg) => console.log('✅ Service Worker зарегистрирован:', reg.scope))
+                    .catch((err) => console.log('❌ SW ошибка:', err));
+            });
+        }
     </script>
 </body>
 </html>
