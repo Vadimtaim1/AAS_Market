@@ -56,25 +56,15 @@
             box-shadow: 0 0 10px var(--green);
         }
         .header-info .btn-add-emp-top {
-            background: var(--green);
-            color: #0a1628;
-            font-weight: 700;
-            padding: 4px 12px;
-            border: none;
-            border-radius: 30px;
-            cursor: pointer;
-            font-size: 11px;
-            box-shadow: 0 0 10px var(--green);
-            transition: 0.15s;
-            display: flex;
-            align-items: center;
-            gap: 4px;
+            background: var(--green); color: #0a1628; font-weight: 700;
+            padding: 4px 12px; border: none; border-radius: 30px; cursor: pointer;
+            font-size: 11px; box-shadow: 0 0 10px var(--green); transition: 0.15s;
+            display: flex; align-items: center; gap: 4px;
         }
         .header-info .btn-add-emp-top:hover { background: var(--green-dark); transform: scale(1.05); }
         .header-info .btn-add-emp-top.hidden { display: none; }
         .header-info .btn-manage-emp {
-            background: #b03a4a; color: #fff;
-            font-weight: 700; padding: 4px 12px;
+            background: #b03a4a; color: #fff; font-weight: 700; padding: 4px 12px;
             border: none; border-radius: 30px; cursor: pointer;
             font-size: 11px; transition: 0.15s;
             display: flex; align-items: center; gap: 4px;
@@ -86,17 +76,10 @@
         .shift-status.closed { background: #b03a4a; color: #fff; }
         .shift-status.online { background: var(--green); color: #0a1628; box-shadow: 0 0 10px var(--green); }
         .cloud-status {
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-            padding: 3px 10px;
-            border-radius: 30px;
-            font-size: 11px;
-            font-weight: 700;
-            transition: 0.3s;
-            cursor: help;
-            background: rgba(255,255,255,0.05);
-            color: #aaa;
+            display: inline-flex; align-items: center; gap: 4px;
+            padding: 3px 10px; border-radius: 30px;
+            font-size: 11px; font-weight: 700; transition: 0.3s; cursor: help;
+            background: rgba(255,255,255,0.05); color: #aaa;
         }
         .login-screen {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
@@ -121,8 +104,7 @@
             background: linear-gradient(135deg, #0a1628, #1a2a5a);
             border-radius: 14px;
             display: flex; align-items: center; justify-content: center;
-            box-shadow: 0 0 20px var(--green);
-            padding: 6px;
+            box-shadow: 0 0 20px var(--green); padding: 6px;
         }
         .login-box .login-logo .text { font-size: 22px; font-weight: 700; color: #1a2a4a; }
         .login-box .login-logo .text .brand { color: var(--green-dark); }
@@ -487,15 +469,22 @@
         .archive-emp-card .aec-stats { font-size: 11px; color: #5a6a7a; }
         .archive-emp-card .aec-arrow { font-size: 22px; color: #8a9ab5; font-weight: 700; transition: 0.15s; }
         .archive-emp-card:hover .aec-arrow { color: var(--green-dark); transform: translateX(4px); }
+        .live-badge { display: inline-block; background: #b03a4a; color: #fff; font-size: 9px; font-weight: 700; padding: 2px 8px; border-radius: 20px; margin-left: 6px; animation: pulse 1.5s infinite; }
+        @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.5; } }
         .archive-shift-card { display: flex; align-items: center; gap: 12px; padding: 12px 14px; background: #fff; border: 1px solid #e9edf2; border-radius: 10px; margin-bottom: 6px; cursor: pointer; transition: 0.15s; }
         .archive-shift-card:hover { border-color: var(--green); background: var(--green-bg); transform: translateX(4px); }
+        .archive-shift-card.live { border: 2px solid #b03a4a; background: #fff5f5; }
+        .archive-shift-card.live:hover { background: #ffe8ea; }
         .archive-shift-card .asc-date { display: flex; flex-direction: column; align-items: center; background: var(--navy-2); color: #fff; border-radius: 8px; padding: 6px 10px; min-width: 70px; flex-shrink: 0; }
+        .archive-shift-card .asc-date.live { background: #b03a4a; }
         .archive-shift-card .asc-date .d-day { font-size: 20px; font-weight: 700; color: var(--green); line-height: 1; }
+        .archive-shift-card .asc-date.live .d-day { color: #fff; }
         .archive-shift-card .asc-date .d-month { font-size: 10px; text-transform: uppercase; opacity: 0.85; margin-top: 2px; }
         .archive-shift-card .asc-info { flex: 1; min-width: 0; }
         .archive-shift-card .asc-title { font-weight: 700; color: #1a2a4a; font-size: 13px; margin-bottom: 2px; }
         .archive-shift-card .asc-sub { font-size: 11px; color: #5a6a7a; }
         .archive-shift-card .asc-total { font-weight: 700; color: var(--green-dark); font-size: 15px; min-width: 90px; text-align: right; }
+        .archive-shift-card.live .asc-total { color: #b03a4a; }
         .archive-shift-card .asc-arrow { font-size: 20px; color: #8a9ab5; font-weight: 700; }
         .archive-shift-card:hover .asc-arrow { color: var(--green-dark); transform: translateX(4px); }
         .archive-invoice-card { display: flex; align-items: center; gap: 10px; padding: 10px 12px; background: #fafcff; border: 1px solid #e9edf2; border-radius: 8px; margin-bottom: 6px; cursor: pointer; transition: 0.15s; }
@@ -510,6 +499,7 @@
         .archive-empty { text-align: center; color: #8a9ab5; padding: 30px 20px; font-style: italic; font-size: 13px; }
         .archive-info-bar { background: var(--green-bg); border: 1px solid #7ddfb0; border-radius: 8px; padding: 8px 12px; margin-bottom: 10px; font-size: 12px; color: #0a1628; font-weight: 600; display: flex; align-items: center; gap: 6px; }
         .archive-info-bar.admin { background: #fff3cd; border-color: #f5c842; }
+        .archive-info-bar.live { background: #ffe8ea; border-color: #b03a4a; color: #b03a4a; }
         .photo-viewer-modal .modal-box { max-width: 100%; width: 100%; height: 100%; max-height: 100vh; padding: 0; background: #000; border-radius: 0; display: flex; flex-direction: column; }
         .photo-viewer-header { background: rgba(0,0,0,0.8); color: #fff; padding: 12px 16px; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--green); }
         .photo-viewer-header .pv-title { font-size: 14px; font-weight: 600; }
@@ -1308,7 +1298,6 @@
                 } catch (e) { console.log('Ошибка сохранения', e); }
             }
 
-            // ===== ГАРАНТИЯ ЕДИНИЦЫ У ВСЕХ ТОВАРОВ =====
             function ensureUnitsOnStock() {
                 if (!Array.isArray(stock)) return;
                 stock.forEach(item => {
@@ -1379,6 +1368,9 @@
             let editingProductId = null;
             let editingProductImages = [];
 
+            // Локальный кэш «живых смен» (обновляется с сервера)
+            let liveShifts = {};
+
             const loaded = loadData();
             if (!loaded) {
                 employees = JSON.parse(JSON.stringify(DEFAULT_EMPLOYEES));
@@ -1394,6 +1386,11 @@
             }
             ensureAdminExists();
             ensureUnitsOnStock();
+
+            try {
+                const savedLive = localStorage.getItem('aas_live_shifts');
+                if (savedLive) liveShifts = JSON.parse(savedLive) || {};
+            } catch (e) { liveShifts = {}; }
 
             const $ = id => document.getElementById(id);
             const loginScreen = $('loginScreen');
@@ -2452,7 +2449,6 @@
                 });
             }
 
-            // ===== ТЕКСТОВЫЙ ВИД ЗАКАЗА (с единицами) =====
             function getSingleOrderText(order, idx) {
                 if (!order || !order.items || order.items.length === 0) return 'Нет товаров';
                 const dateStr = new Date(order.date).toLocaleString('ru-RU', { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' });
@@ -2598,6 +2594,7 @@
                     '<div class="inv-footer">AAS Маркет • Сводная накладная</div>';
             }
 
+            // ===== АРХИВ =====
             function renderArchive() {
                 const empIsAdmin = isCurrentAdmin();
                 let breadcrumbs = '';
@@ -2608,7 +2605,7 @@
                 }
                 if (archiveView.shiftId) {
                     breadcrumbs += '<span class="bc-sep">›</span>';
-                    breadcrumbs += '<span class="bc-item current">📅 Смена #' + archiveView.shiftId + '</span>';
+                    breadcrumbs += '<span class="bc-item current">' + (archiveView.shiftId === '__LIVE__' ? '🔴 Смена СЕЙЧАС' : '📅 Смена #' + archiveView.shiftId) + '</span>';
                 }
                 archiveBreadcrumb.innerHTML = breadcrumbs;
                 archiveBreadcrumb.querySelectorAll('.bc-item').forEach(b => {
@@ -2631,21 +2628,32 @@
                 if (archiveView.level === 'shifts') { renderArchiveShiftsList(); return; }
                 if (archiveView.level === 'invoices') { renderArchiveInvoicesList(); return; }
             }
+
             function renderArchiveEmployeesList(empIsAdmin) {
                 const empNames = new Set();
                 if (empIsAdmin) shiftArchive.forEach(sh => empNames.add(sh.employee));
                 else if (currentEmployee) shiftArchive.forEach(sh => { if (sh.employee === currentEmployee.name) empNames.add(sh.employee); });
+                // добавляем сотрудников с живыми сменами
+                Object.keys(liveShifts).forEach(empName => {
+                    if (empIsAdmin || (currentEmployee && empName === currentEmployee.name)) {
+                        empNames.add(empName);
+                    }
+                });
                 if (empNames.size === 0) { archiveContent.innerHTML = '<div class="archive-empty">📭 Нет накладных в архиве</div>'; return; }
                 let html = '';
                 Array.from(empNames).sort().forEach(empName => {
                     const empShifts = shiftArchive.filter(sh => sh.employee === empName);
-                    const totalOrders = empShifts.reduce((s, sh) => s + (sh.ordersCount || 0), 0);
-                    const totalSum = empShifts.reduce((s, sh) => s + (sh.total || 0), 0);
+                    const live = liveShifts[empName];
+                    const totalOrders = empShifts.reduce((s, sh) => s + (sh.ordersCount || 0), 0)
+                        + (live ? (live.ordersCount || 0) : 0);
+                    const totalSum = empShifts.reduce((s, sh) => s + (sh.total || 0), 0)
+                        + (live ? (live.total || 0) : 0);
                     const empObj = employees.find(e => e.name === empName);
+                    const liveMark = live ? '<span class="live-badge">🔴 LIVE</span>' : '';
                     html += '<div class="archive-emp-card" data-emp="' + empName + '">' +
                         '<div class="aec-avatar">' + (empObj && empObj.avatar ? '<img src="' + empObj.avatar + '">' : (empObj ? (empObj.icon || '👤') : '👤')) + '</div>' +
-                        '<div class="aec-info"><div class="aec-name">' + empName + (empObj && isAdmin(empObj) ? ' 👑' : '') + '</div>' +
-                        '<div class="aec-stats">📅 Смен: ' + empShifts.length + ' • 📄 Накладных: ' + totalOrders + ' • 💰 ' + totalSum.toFixed(2) + ' ₸</div></div>' +
+                        '<div class="aec-info"><div class="aec-name">' + empName + (empObj && isAdmin(empObj) ? ' 👑' : '') + liveMark + '</div>' +
+                        '<div class="aec-stats">📅 Смен: ' + (empShifts.length + (live ? 1 : 0)) + ' • 📄 Накладных: ' + totalOrders + ' • 💰 ' + totalSum.toFixed(2) + ' ₸</div></div>' +
                         '<div class="aec-arrow">›</div></div>';
                 });
                 archiveContent.innerHTML = html;
@@ -2656,12 +2664,31 @@
                     });
                 });
             }
+
             function renderArchiveShiftsList() {
                 const empName = archiveView.employeeName;
                 const empShifts = shiftArchive.filter(sh => sh.employee === empName);
-                if (empShifts.length === 0) { archiveContent.innerHTML = '<div class="archive-empty">📭 У сотрудника нет смен</div>'; return; }
-                empShifts.sort((a, b) => new Date(b.date) - new Date(a.date));
+                const live = liveShifts[empName];
                 let html = '';
+                // Живая смена — первой карточкой
+                if (live) {
+                    const d = new Date(live.startTime);
+                    const day = d.getDate().toString().padStart(2, '0');
+                    const monthNames = ['ЯНВ','ФЕВ','МАР','АПР','МАЯ','ИЮН','ИЮЛ','АВГ','СЕН','ОКТ','НОЯ','ДЕК'];
+                    const month = monthNames[d.getMonth()];
+                    const timeStart = new Date(live.startTime).toLocaleTimeString('ru-RU', { hour: '2-digit', minute: '2-digit' });
+                    html += '<div class="archive-shift-card live" data-live="1">' +
+                        '<div class="asc-date live"><div class="d-day">' + day + '</div><div class="d-month">' + month + '</div></div>' +
+                        '<div class="asc-info"><div class="asc-title">🔴 Смена СЕЙЧАС (в процессе)</div>' +
+                        '<div class="asc-sub">🕐 с ' + timeStart + ' • 📄 ' + (live.ordersCount || 0) + ' накладных</div></div>' +
+                        '<div class="asc-total">' + Number(live.total || 0).toFixed(2) + ' ₸</div>' +
+                        '<div class="asc-arrow">›</div></div>';
+                }
+                if (empShifts.length === 0 && !live) {
+                    archiveContent.innerHTML = '<div class="archive-empty">📭 У сотрудника нет смен</div>';
+                    return;
+                }
+                empShifts.sort((a, b) => new Date(b.date) - new Date(a.date));
                 empShifts.forEach(sh => {
                     const d = new Date(sh.date);
                     const day = d.getDate().toString().padStart(2, '0');
@@ -2680,22 +2707,42 @@
                 archiveContent.innerHTML = html;
                 archiveContent.querySelectorAll('.archive-shift-card').forEach(card => {
                     card.addEventListener('click', function() {
-                        archiveView = { level: 'invoices', employeeName: empName, shiftId: parseInt(this.dataset.shift) };
+                        if (this.dataset.live) {
+                            archiveView = { level: 'invoices', employeeName: empName, shiftId: '__LIVE__' };
+                        } else {
+                            archiveView = { level: 'invoices', employeeName: empName, shiftId: parseInt(this.dataset.shift) };
+                        }
                         renderArchive();
                     });
                 });
             }
+
             function renderArchiveInvoicesList() {
                 const empName = archiveView.employeeName;
                 const shiftId = archiveView.shiftId;
-                const shift = shiftArchive.find(sh => sh.id === shiftId && sh.employee === empName);
-                if (!shift || !shift.orders || shift.orders.length === 0) { archiveContent.innerHTML = '<div class="archive-empty">📭 Нет накладных в этой смене</div>'; return; }
+                let shift;
+                let isLive = false;
+                if (shiftId === '__LIVE__') {
+                    const live = liveShifts[empName];
+                    if (!live) { archiveContent.innerHTML = '<div class="archive-empty">📭 Живая смена уже закрыта</div>'; return; }
+                    shift = { id: '__LIVE__', employee: empName, startTime: live.startTime, endTime: null, orders: live.orders || [] };
+                    isLive = true;
+                } else {
+                    shift = shiftArchive.find(sh => sh.id === shiftId && sh.employee === empName);
+                }
+                if (!shift || !shift.orders || shift.orders.length === 0) {
+                    archiveContent.innerHTML = '<div class="archive-empty">📭 Нет накладных в этой смене</div>';
+                    return;
+                }
                 const totalOrders = shift.orders.length;
                 const totalSum = shift.orders.reduce((s, o) => s + (o.total || 0), 0);
                 const timeStart = new Date(shift.startTime).toLocaleString('ru-RU');
-                const timeEnd = shift.endTime ? new Date(shift.endTime).toLocaleString('ru-RU') : '—';
-                let html = '<div class="archive-info-bar" style="margin-bottom:12px;">' +
-                    '📅 <strong>Смена #' + shift.id + '</strong> • 👤 ' + empName + ' • 🕐 ' + timeStart + ' — ' + timeEnd + ' • 📄 ' + totalOrders + ' накладных • 💰 ' + totalSum.toFixed(2) + ' ₸' +
+                const timeEnd = shift.endTime ? new Date(shift.endTime).toLocaleString('ru-RU') : 'в процессе';
+                const barClass = isLive ? 'archive-info-bar live' : 'archive-info-bar';
+                let html = '<div class="' + barClass + '" style="margin-bottom:12px;">' +
+                    (isLive ? '🔴 <strong>Смена СЕЙЧАС</strong>' : '📅 <strong>Смена #' + shift.id + '</strong>') +
+                    ' • 👤 ' + empName + ' • 🕐 ' + timeStart + ' — ' + timeEnd +
+                    ' • 📄 ' + totalOrders + ' накладных • 💰 ' + totalSum.toFixed(2) + ' ₸' +
                     '</div>';
                 shift.orders.forEach((order, i) => {
                     const date = new Date(order.date).toLocaleString('ru-RU', { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' });
@@ -2710,13 +2757,20 @@
                 archiveContent.innerHTML = html;
                 archiveContent.querySelectorAll('.archive-invoice-card').forEach(card => {
                     card.addEventListener('click', function() {
-                        const shId = parseInt(this.dataset.shift);
+                        const shId = this.dataset.shift;
                         const idx = parseInt(this.dataset.idx);
-                        const sh = shiftArchive.find(s => s.id === shId);
+                        let sh;
+                        if (shId === '__LIVE__') {
+                            const live = liveShifts[empName];
+                            if (live) sh = { id: '__LIVE__', employee: empName, orders: live.orders || [] };
+                        } else {
+                            sh = shiftArchive.find(s => s.id === parseInt(shId));
+                        }
                         if (sh && sh.orders[idx]) viewArchivedOrder(sh.orders[idx], idx, sh);
                     });
                 });
             }
+
             function viewArchivedOrder(order, idx, shift) {
                 const html = buildSingleOrderHTML(order);
                 viewOrderContent.innerHTML = html;
@@ -2727,6 +2781,7 @@
                 viewOrderModal.classList.add('active');
             }
 
+            // ===== СМЕНА =====
             function updateShiftUI() {
                 if (shiftState.active) {
                     shiftStatusBadge.textContent = '🟢 Смена активна';
@@ -2795,6 +2850,7 @@
                 if (updates.length > 0) incrementStockInCloud(updates);
                 shiftState.orders.splice(idx, 1);
                 saveData(); updateShiftOrders(); renderAll();
+                pushLiveShiftToCloud();
                 showToast('🗑️ Накладная удалена, товары возвращены');
             }
             function viewSingleOrder(order, idx) {
@@ -2806,6 +2862,7 @@
                 delete viewOrderModal.dataset.archivedIdx;
                 viewOrderModal.classList.add('active');
             }
+
             function closeShift() {
                 if (!shiftState.active) { alert('Смена не активна'); return; }
                 if (shiftState.orders.length === 0 && !confirm('Накладных нет. Закрыть смену?')) return;
@@ -2819,6 +2876,10 @@
                     date: new Date(shiftState.startTime).toISOString()
                 });
                 saveData(); syncEverythingNow();
+                // Убираем живую смену
+                delete liveShifts[shiftState.employee];
+                try { localStorage.setItem('aas_live_shifts', JSON.stringify(liveShifts)); } catch(e) {}
+                apiUpdateSection('liveShifts', liveShifts).catch(e => console.log(e));
                 const content = buildInvoiceHTML(shiftState.orders, shiftState.employee, shiftState.startTime, shiftState.endTime);
                 closeShiftContent.innerHTML = content;
                 closeShiftInfo.textContent = 'Сотрудник: ' + shiftState.employee + ' | Накладных: ' + shiftState.orders.length + ' | Сумма: ' + total.toFixed(2) + ' ₸';
@@ -2860,6 +2921,25 @@
                 }, 500);
             });
 
+            // ===== PUSH LIVE SHIFT TO CLOUD =====
+            async function pushLiveShiftToCloud() {
+                if (!shiftState.active || !shiftState.employee) return;
+                try {
+                    liveShifts[shiftState.employee] = {
+                        employee: shiftState.employee,
+                        startTime: shiftState.startTime,
+                        endTime: shiftState.endTime,
+                        orders: shiftState.orders,
+                        total: shiftState.orders.reduce((s, o) => s + (o.total || 0), 0),
+                        ordersCount: shiftState.orders.length,
+                        updatedAt: new Date().toISOString()
+                    };
+                    try { localStorage.setItem('aas_live_shifts', JSON.stringify(liveShifts)); } catch(e) {}
+                    await apiUpdateSection('liveShifts', liveShifts);
+                    console.log('⚡ Живая смена отправлена: ' + shiftState.employee);
+                } catch (err) { console.error('pushLiveShift error:', err); }
+            }
+
             function renderAll() {
                 renderMain();
                 renderStock();
@@ -2869,7 +2949,6 @@
                 saveData();
             }
 
-            // ===== ГЛАВНАЯ — С ЕДИНИЦАМИ =====
             function renderMain() {
                 const avail = stock.filter(it => it.qty > 0);
                 if (avail.length === 0) { mainGrid.innerHTML = '<div class="empty-state">Нет товаров</div>'; return; }
@@ -2911,7 +2990,6 @@
                 });
             }
 
-            // ===== СКЛАД — С ЕДИНИЦАМИ =====
             function renderStock() {
                 if (stock.length === 0) { stockGrid.innerHTML = '<div class="empty-state">Нет товаров</div>'; return; }
                 let html = '';
@@ -2966,7 +3044,6 @@
                 });
             }
 
-            // ===== КОРЗИНА — С ЕДИНИЦАМИ =====
             function renderCart() {
                 if (cart.length === 0) { cartItems.innerHTML = '<div class="empty-state">Корзина пуста</div>'; return; }
                 let html = '';
@@ -3003,7 +3080,7 @@
                     if (currentEmployee && !isCurrentAdmin()) {
                         archiveBadgeEl.textContent = shiftArchive.filter(sh => sh.employee === currentEmployee.name).length;
                     } else {
-                        archiveBadgeEl.textContent = shiftArchive.length;
+                        archiveBadgeEl.textContent = shiftArchive.length + Object.keys(liveShifts).length;
                     }
                 }
             }
@@ -3122,7 +3199,6 @@
                 e.target.value = '';
             });
 
-            // ===== ПОПОЛНЕНИЕ СКЛАДА — С ЕДИНИЦЕЙ =====
             function openAddStockModal(id) {
                 const item = stock.find(it => it.id === id);
                 if (!item) return;
@@ -3153,7 +3229,6 @@
             addStockModal.addEventListener('click', (e) => { if (e.target === addStockModal) { addStockModal.classList.remove('active'); pendingAddStockId = null; } });
             addStockQtyInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') confirmAddStock(); });
 
-            // ===== ДОБАВЛЕНИЕ В КОРЗИНУ — С ЕДИНИЦЕЙ =====
             function openQtyModal(id) {
                 const item = stock.find(it => it.id === id);
                 if (!item) return;
@@ -3243,7 +3318,6 @@
             }
             loadEInvoices();
 
-            // ===== ФОРМИРОВАНИЕ НАКЛАДНОЙ — С ЕДИНИЦАМИ =====
             function generateInvoice() {
                 if (cart.length === 0) { invoiceDisplay.innerHTML = '<div class="empty-state">Корзина пуста</div>'; return; }
                 const sellerName = shiftState.employee || '—';
@@ -3299,6 +3373,8 @@
                     shiftState.orders.push({ saleId: Date.now(), date: new Date().toISOString(), buyerShop, buyerName, sellerName, items, total, invoiceId });
                     updateShiftOrders();
                     saveData();
+                    // ⚡ REALTIME — сразу шлём в облако
+                    pushLiveShiftToCloud();
                 }
                 cart = [];
                 renderAll();
@@ -3459,7 +3535,6 @@
             textViewCloseBtn.addEventListener('click', () => textViewModal.classList.remove('active'));
             textViewModal.addEventListener('click', (e) => { if (e.target === textViewModal) textViewModal.classList.remove('active'); });
 
-            // ===== ДОБАВЛЕНИЕ ТОВАРА — С ЕДИНИЦЕЙ =====
             addBtn.addEventListener('click', () => {
                 const name = nameInput.value.trim();
                 const price = parseFloat(priceInput.value);
@@ -3487,7 +3562,7 @@
                 });
             });
 
-            // ===== QR СКАНЕР / E-PICKING — С ЕДИНИЦАМИ =====
+            // ===== СКАНЕР QR =====
             const qrReader = document.getElementById('qrReader');
             const scanStatus = document.getElementById('scanStatus');
             const startScanBtn = document.getElementById('startScanBtn');
@@ -3657,6 +3732,7 @@
             });
             window.addEventListener('beforeunload', () => { if (isScanning) stopScan(); });
 
+            // ===== СИНХРОНИЗАЦИЯ =====
             function updateCloudStatusUI(status, message) {
                 const badge = document.getElementById('cloudStatusBadge');
                 if (!badge) return;
@@ -3679,6 +3755,7 @@
                     badge.style.color = '#aaa';
                 }
             }
+
             async function loadEInvoicesFromCloud() {
                 try {
                     updateCloudStatusUI('syncing');
@@ -3701,6 +3778,7 @@
                     updateCloudStatusUI('error');
                 }
             }
+
             async function uploadEInvoiceToCloud(invoiceId) {
                 try {
                     const inv = eInvoices[invoiceId];
@@ -3754,17 +3832,42 @@
                     } else if (stock.length > 0) {
                         await apiUpdateSection('stock', stock);
                     }
+                    // АРХИВ — МЕРДЖ (не перетираем!)
                     if (state.shiftArchive && Array.isArray(state.shiftArchive)) {
-                        shiftArchive = state.shiftArchive;
+                        const localMap = {};
+                        shiftArchive.forEach(sh => { localMap[sh.id] = sh; });
+                        state.shiftArchive.forEach(cloudSh => {
+                            if (!localMap[cloudSh.id]) {
+                                shiftArchive.push(cloudSh);
+                            } else {
+                                const localSh = localMap[cloudSh.id];
+                                const cloudTime = new Date(cloudSh.endTime || cloudSh.startTime || 0).getTime();
+                                const localTime = new Date(localSh.endTime || localSh.startTime || 0).getTime();
+                                if (cloudTime > localTime) {
+                                    const idx = shiftArchive.findIndex(s => s.id === cloudSh.id);
+                                    if (idx !== -1) shiftArchive[idx] = cloudSh;
+                                }
+                            }
+                        });
+                        shiftArchive.sort((a, b) => a.id - b.id);
                         const maxId = shiftArchive.reduce((m, s) => Math.max(m, s.id || 0), 0);
                         if (maxId >= nextShiftId) nextShiftId = maxId + 1;
-                        console.log('☁️ Архив смен загружен: ' + shiftArchive.length);
+                        console.log('☁️ Архив смен (мердж): ' + shiftArchive.length);
+                    } else if (shiftArchive.length > 0) {
+                        await apiUpdateSection('shiftArchive', shiftArchive);
+                    }
+                    // LIVE SHIFTS
+                    if (state.liveShifts && typeof state.liveShifts === 'object') {
+                        liveShifts = state.liveShifts;
+                        try { localStorage.setItem('aas_live_shifts', JSON.stringify(liveShifts)); } catch(e) {}
+                        console.log('🔴 Живых смен: ' + Object.keys(liveShifts).length);
                     }
                     ensureUnitsOnStock();
                     saveData();
                     renderAll(); renderShops(); renderLoginEmployees(); renderArchive();
                 } catch (err) { console.error('Ошибка загрузки с сервера:', err); }
             }
+
             async function uploadStockToCloud() {
                 try { await apiUpdateSection('stock', stock); console.log('☁️ Склад отправлен (' + stock.length + ')'); }
                 catch (err) { console.error('Ошибка:', err); }
@@ -3825,6 +3928,7 @@
                     }
                 } catch (err) { console.error('Ошибка увеличения:', err); }
             }
+
             function subscribeToCloudChanges() {
                 setInterval(async () => {
                     if (document.visibilityState !== 'visible') return;
@@ -3888,18 +3992,45 @@
                                 console.log('🔄 Магазины обновлены');
                             }
                         }
+                        // АРХИВ — МЕРДЖ
                         if (state.shiftArchive && Array.isArray(state.shiftArchive)) {
-                            if (JSON.stringify(shiftArchive) !== JSON.stringify(state.shiftArchive)) {
-                                shiftArchive = state.shiftArchive;
+                            let archChanged = false;
+                            const localIds = new Set(shiftArchive.map(s => s.id));
+                            state.shiftArchive.forEach(cloudSh => {
+                                if (!localIds.has(cloudSh.id)) {
+                                    shiftArchive.push(cloudSh);
+                                    archChanged = true;
+                                }
+                            });
+                            if (archChanged) {
+                                shiftArchive.sort((a, b) => a.id - b.id);
                                 const maxId = shiftArchive.reduce((m, s) => Math.max(m, s.id || 0), 0);
                                 if (maxId >= nextShiftId) nextShiftId = maxId + 1;
                                 saveData(); renderArchive();
-                                console.log('🔄 Архив смен обновлён');
+                                console.log('🔄 Архив смен обновлён (мердж)');
+                            }
+                        }
+                        // ЖИВЫЕ СМЕНЫ — realtime
+                        if (state.liveShifts && typeof state.liveShifts === 'object') {
+                            const newJson = JSON.stringify(state.liveShifts);
+                            const oldJson = JSON.stringify(liveShifts);
+                            if (newJson !== oldJson) {
+                                liveShifts = state.liveShifts;
+                                try { localStorage.setItem('aas_live_shifts', JSON.stringify(liveShifts)); } catch(e) {}
+                                if (isCurrentAdmin() || (currentEmployee && archiveView.level === 'employees')) {
+                                    renderArchive();
+                                }
+                                // если смотрим на архив — обновляем
+                                if (archiveView.level === 'shifts' || archiveView.level === 'invoices') {
+                                    renderArchive();
+                                }
+                                console.log('🔴 Живые смены обновлены: ' + Object.keys(liveShifts).length);
                             }
                         }
                     } catch(e) { console.error('Sync error:', e); }
                 }, 2000);
             }
+
             function startPeriodicSync() {
                 setInterval(() => {
                     if (document.visibilityState === 'visible') loadEInvoicesFromCloud();
