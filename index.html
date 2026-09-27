@@ -6,8 +6,8 @@
     <title>AAS Маркет - Доставка</title>
     <link rel="manifest" href="/manifest.json">
     <meta name="theme-color" content="#00FF00">
-    <link rel="icon" href="https://i.ibb.co.com/JwFkXNBj/Gemini-Generated-Image-xk90crxk90crxk90.jpg">
-    <link rel="apple-touch-icon" href="https://i.ibb.co.com/JwFkXNBj/Gemini-Generated-Image-xk90crxk90crxk90.jpg">
+    <link rel="icon" href="https://i.ibb.co.com/0jnqXmBn/2026-09-26-193414.png">
+    <link rel="apple-touch-icon" href="https://i.ibb.co.com/0jnqXmBn/2026-09-26-193414.png">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <script src="https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
@@ -295,6 +295,8 @@
         .btn-cart-add:hover { background: var(--green-dark); }
         .btn-add-stock { background: #e8f0fe; color: #1a4a7a; }
         .btn-add-stock:hover { background: #d0e0fe; }
+        .btn-edit-stock { background: #fff3cd; color: #8a6a10; }
+        .btn-edit-stock:hover { background: #ffe8a3; }
         .btn-delete { background: #fee8ea; color: #b03a4a; flex: 0.4; }
         .btn-delete:hover { background: #fdd0d4; }
         .cart-items { display: flex; flex-direction: column; gap: 8px; }
@@ -587,6 +589,10 @@
         .modal-change-pass label { font-weight: 600; font-size: 10px; display: block; color: #4a5a7a; text-transform: uppercase; margin-bottom: 3px; margin-top: 6px; }
         .pass-hint { font-size: 11px; color: #4a6a8a; background: var(--green-bg); border: 1px solid #7ddfb0; border-radius: 6px; padding: 8px 10px; margin-bottom: 10px; line-height: 1.4; }
         .pass-error { font-size: 12px; color: #b03a4a; padding: 6px 10px; background: #fee8ea; border-radius: 6px; margin-bottom: 8px; display: none; }
+        .modal-edit-product .modal-box { max-width: 520px; }
+        .modal-edit-product input[type="text"],
+        .modal-edit-product input[type="number"] { text-align: left; font-size: 14px; font-weight: 500; letter-spacing: normal; }
+        .modal-edit-product label { font-weight: 600; font-size: 10px; display: block; color: #4a5a7a; text-transform: uppercase; margin-bottom: 3px; margin-top: 6px; }
         @media (max-width: 480px) {
             .header .logo-text { font-size: 14px; }
             .header .logo-icon { width: 42px; height: 42px; }
@@ -804,6 +810,42 @@
     <div class="modal-overlay product-modal" id="productModal">
         <div class="modal-box">
             <div class="product-modal-body" id="productModalBody"></div>
+        </div>
+    </div>
+
+    <div class="modal-overlay modal-edit-product" id="editProductModal">
+        <div class="modal-box">
+            <h3>✏️ Редактировать товар</h3>
+            <div class="sub">Измените данные и сохраните</div>
+
+            <label>Название</label>
+            <input type="text" id="editProductName" placeholder="Название товара">
+
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+                <div>
+                    <label>Цена (₸)</label>
+                    <input type="number" id="editProductPrice" placeholder="0" step="0.01">
+                </div>
+                <div>
+                    <label>Количество</label>
+                    <input type="number" id="editProductQty" placeholder="0" min="0">
+                </div>
+            </div>
+
+            <label>Описание</label>
+            <input type="text" id="editProductDesc" placeholder="Описание">
+
+            <label>Фото (можно добавить новые)</label>
+            <div class="file-upload-wrapper" style="margin-bottom:8px;">
+                <div class="file-upload-btn">📁 Добавить фото (можно несколько)</div>
+                <input type="file" id="editProductImageFile" accept="image/*" multiple>
+            </div>
+            <div class="multi-preview" id="editMultiPreview"></div>
+
+            <div class="modal-actions" style="margin-top:14px;">
+                <button class="btn-confirm" id="saveEditProductBtn">✅ Сохранить</button>
+                <button class="btn-cancel" id="cancelEditProductBtn">Отмена</button>
+            </div>
         </div>
     </div>
 
@@ -1084,7 +1126,7 @@
                 { name: 'Сыр Российский', price: 450, qty: 5, images: ['https://via.placeholder.com/400/e6ffe6/00cc00?text=🧀'], desc: 'Сыр Российский' }
             ];
 
-            const LOGO_URL = 'https://i.ibb.co.com/JwFkXNBj/Gemini-Generated-Image-xk90crxk90crxk90.jpg';
+            const LOGO_URL = 'https://i.ibb.co.com/0jnqXmBn/2026-09-26-193414.png';
 
             function getLogoSVG() {
                 return '<img src="' + LOGO_URL + '" alt="AAS" style="width:100%;height:100%;object-fit:contain;display:block;" onerror="this.style.display=\'none\';this.parentNode.innerHTML=\'<div style=&quot;width:100%;height:100%;background:#00FF00;color:#0a1628;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:24px;border-radius:8px;&quot;>A</div>\'">';
@@ -1203,6 +1245,8 @@
             let shiftState = { active: false, employee: null, startTime: null, endTime: null, orders: [] };
             let waPendingPDFData = null;
             let archiveView = { level: 'employees', employeeName: null, shiftId: null };
+            let editingProductId = null;
+            let editingProductImages = [];
 
             const loaded = loadData();
             if (!loaded) {
@@ -1364,6 +1408,16 @@
             const changePassError = $('changePassError');
             const changePassConfirmBtn = $('changePassConfirmBtn');
             const changePassCancelBtn = $('changePassCancelBtn');
+
+            const editProductModal = $('editProductModal');
+            const editProductName = $('editProductName');
+            const editProductPrice = $('editProductPrice');
+            const editProductQty = $('editProductQty');
+            const editProductDesc = $('editProductDesc');
+            const editProductImageFile = $('editProductImageFile');
+            const editMultiPreview = $('editMultiPreview');
+            const saveEditProductBtn = $('saveEditProductBtn');
+            const cancelEditProductBtn = $('cancelEditProductBtn');
 
             const toast = $('toast');
             let toastTimeout = null;
@@ -2810,7 +2864,8 @@
                         '<div class="card-stock ' + (zero ? 'zero' : '') + '">📦 ' + item.qty + ' шт.</div>' +
                         '<div class="card-actions">' +
                         (zero ? '<button class="btn-out-of-stock" disabled>Нет</button>' : '<button class="btn-cart-add add-to-cart-btn" data-id="' + item.id + '">➕</button>') +
-                        '<button class="btn-add-stock add-stock-btn" data-id="' + item.id + '">📦 +</button>' +
+                        '<button class="btn-add-stock add-stock-btn" data-id="' + item.id + '">📦</button>' +
+                        '<button class="btn-edit-stock edit-stock-btn" data-id="' + item.id + '">✏️</button>' +
                         '<button class="btn-delete remove-stock-btn" data-id="' + item.id + '">✖</button>' +
                         '</div></div></div>';
                 });
@@ -2825,6 +2880,7 @@
                     card.addEventListener('click', function(e) {
                         if (e.target.closest('.add-to-cart-btn')) return;
                         if (e.target.closest('.add-stock-btn')) return;
+                        if (e.target.closest('.edit-stock-btn')) return;
                         if (e.target.closest('.remove-stock-btn')) return;
                         if (e.target.closest('.gallery-arrow')) return;
                         if (e.target.closest('.gallery-dots')) return;
@@ -2843,6 +2899,12 @@
                     b.addEventListener('click', function(e) {
                         e.stopPropagation();
                         openAddStockModal(Number(this.dataset.id));
+                    });
+                });
+                stockGrid.querySelectorAll('.edit-stock-btn').forEach(b => {
+                    b.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        openEditProductModal(Number(this.dataset.id));
                     });
                 });
                 stockGrid.querySelectorAll('.remove-stock-btn').forEach(b => {
@@ -2929,6 +2991,91 @@
                 uploadStockToCloud();
                 renderAll();
             }
+
+            // ===== РЕДАКТИРОВАНИЕ ТОВАРА =====
+            function openEditProductModal(id) {
+                const item = stock.find(it => it.id === id);
+                if (!item) return;
+                editingProductId = id;
+                editingProductImages = (item.images && item.images.length > 0) ? item.images.slice() : (item.image ? [item.image] : []);
+                editProductName.value = item.name || '';
+                editProductPrice.value = item.price || 0;
+                editProductQty.value = item.qty || 0;
+                editProductDesc.value = item.desc || '';
+                renderEditMultiPreview();
+                editProductModal.classList.add('active');
+                setTimeout(() => editProductName.focus(), 100);
+            }
+
+            function renderEditMultiPreview() {
+                editMultiPreview.innerHTML = '';
+                editingProductImages.forEach((img, idx) => {
+                    const wrap = document.createElement('div');
+                    wrap.className = 'preview-thumb-wrap';
+                    const imgEl = document.createElement('img');
+                    imgEl.className = 'preview-thumb';
+                    imgEl.src = img;
+                    const rm = document.createElement('div');
+                    rm.className = 'rm';
+                    rm.textContent = '×';
+                    rm.onclick = () => { editingProductImages.splice(idx, 1); renderEditMultiPreview(); };
+                    wrap.appendChild(imgEl);
+                    wrap.appendChild(rm);
+                    editMultiPreview.appendChild(wrap);
+                });
+            }
+
+            function saveEditProduct() {
+                if (editingProductId === null) return;
+                const item = stock.find(it => it.id === editingProductId);
+                if (!item) return;
+                const newName = editProductName.value.trim();
+                const newPrice = parseFloat(editProductPrice.value);
+                const newQty = parseInt(editProductQty.value);
+                const newDesc = editProductDesc.value.trim();
+                if (!newName) { alert('Введите название'); return; }
+                if (isNaN(newPrice) || newPrice <= 0) { alert('Введите корректную цену'); return; }
+                if (isNaN(newQty) || newQty < 0) { alert('Введите корректное количество'); return; }
+                item.name = newName;
+                item.price = newPrice;
+                item.qty = newQty;
+                item.desc = newDesc;
+                item.images = editingProductImages.slice();
+                item.image = editingProductImages[0] || 'https://via.placeholder.com/400/e6ffe6/00cc00?text=📦';
+                saveData();
+                apiUpdateSection('stock', stock).catch(e => console.log(e));
+                renderAll();
+                editProductModal.classList.remove('active');
+                editingProductId = null;
+                editingProductImages = [];
+                showToast('✅ Товар обновлён');
+            }
+
+            saveEditProductBtn.addEventListener('click', saveEditProduct);
+            cancelEditProductBtn.addEventListener('click', () => {
+                editProductModal.classList.remove('active');
+                editingProductId = null;
+                editingProductImages = [];
+            });
+            editProductModal.addEventListener('click', (e) => {
+                if (e.target === editProductModal) {
+                    editProductModal.classList.remove('active');
+                    editingProductId = null;
+                    editingProductImages = [];
+                }
+            });
+            editProductImageFile.addEventListener('change', function(e) {
+                const files = Array.from(e.target.files);
+                files.forEach(file => {
+                    const reader = new FileReader();
+                    reader.onload = function(ev) {
+                        editingProductImages.push(ev.target.result);
+                        renderEditMultiPreview();
+                    };
+                    reader.readAsDataURL(file);
+                });
+                e.target.value = '';
+            });
 
             function openAddStockModal(id) {
                 const item = stock.find(it => it.id === id);
@@ -3692,6 +3839,9 @@
                             state.stock.forEach(cloudItem => {
                                 const local = stock.find(s => s.id === cloudItem.id);
                                 if (local && local.qty !== cloudItem.qty) { local.qty = cloudItem.qty; changed = true; }
+                                if (local && local.price !== cloudItem.price) { local.price = cloudItem.price; changed = true; }
+                                if (local && local.name !== cloudItem.name) { local.name = cloudItem.name; changed = true; }
+                                if (local && local.desc !== cloudItem.desc) { local.desc = cloudItem.desc; changed = true; }
                             });
                             state.stock.forEach(cloudItem => {
                                 if (!stock.find(s => s.id === cloudItem.id)) { stock.push(cloudItem); changed = true; }
