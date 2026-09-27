@@ -480,7 +480,8 @@
         .archive-breadcrumb .bc-sep { color: #8a9ab5; font-weight: 700; }
         .archive-emp-card { display: flex; align-items: center; gap: 12px; padding: 14px 16px; background: #fff; border: 2px solid #e9edf2; border-radius: 10px; margin-bottom: 8px; cursor: pointer; transition: 0.15s; }
         .archive-emp-card:hover { border-color: var(--green); background: var(--green-bg); transform: translateX(4px); box-shadow: 0 4px 15px rgba(0,255,0,0.2); }
-        .archive-emp-card .aec-avatar { width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg, #0a1628, #1a2a5a); display: flex; align-items: center; justify-content: center; font-size: 24px; flex-shrink: 0; box-shadow: 0 0 15px rgba(0,255,0,0.3); }
+        .archive-emp-card .aec-avatar { width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg, #0a1628, #1a2a5a); display: flex; align-items: center; justify-content: center; font-size: 24px; flex-shrink: 0; box-shadow: 0 0 15px rgba(0,255,0,0.3); overflow: hidden; }
+        .archive-emp-card .aec-avatar img { width: 100%; height: 100%; object-fit: cover; }
         .archive-emp-card .aec-info { flex: 1; min-width: 0; }
         .archive-emp-card .aec-name { font-weight: 700; color: #1a2a4a; font-size: 15px; margin-bottom: 2px; }
         .archive-emp-card .aec-stats { font-size: 11px; color: #5a6a7a; }
@@ -526,23 +527,37 @@
         .photo-viewer-counter { position: absolute; bottom: 10px; right: 16px; background: rgba(0,0,0,0.75); color: #fff; padding: 4px 12px; border-radius: 30px; font-size: 12px; font-weight: 600; }
         .modal-admin .modal-box { max-width: 420px; }
         .modal-admin .modal-box input { text-align: center; font-size: 20px; letter-spacing: 6px; font-weight: 700; }
-        .modal-employee .modal-box { max-width: 460px; }
+        .modal-employee .modal-box { max-width: 480px; }
         .modal-employee .icon-picker { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 10px; justify-content: center; }
         .modal-employee .icon-picker .icon-opt { width: 44px; height: 44px; border-radius: 8px; background: #f0f2f5; border: 2px solid transparent; display: flex; align-items: center; justify-content: center; font-size: 22px; cursor: pointer; transition: 0.15s; }
         .modal-employee .icon-picker .icon-opt:hover { background: var(--green-bg); }
         .modal-employee .icon-picker .icon-opt.active { border-color: var(--green); background: var(--green-bg); }
         .modal-employee input[type="text"], .modal-employee input[type="password"] { text-align: left; font-size: 14px; font-weight: 500; letter-spacing: normal; }
-        .manage-list { max-height: 320px; overflow-y: auto; padding-right: 4px; }
-        .manage-row { display: flex; align-items: center; gap: 8px; padding: 8px 10px; border-radius: 8px; border: 1px solid #e9edf2; background: #fafcff; margin-bottom: 6px; }
+        .role-picker { display: flex; gap: 8px; margin-bottom: 12px; }
+        .role-picker .role-opt { flex: 1; padding: 12px 8px; border-radius: 8px; background: #f0f2f5; border: 2px solid transparent; text-align: center; cursor: pointer; transition: 0.15s; font-weight: 600; font-size: 13px; color: #4a5a6a; }
+        .role-picker .role-opt:hover { background: var(--green-bg); }
+        .role-picker .role-opt.active { border-color: var(--green); background: var(--green-bg); color: #0a1628; }
+        .role-picker .role-opt .role-emoji { font-size: 22px; display: block; margin-bottom: 3px; }
+        .avatar-upload-wrapper { position: relative; width: 90px; height: 90px; margin: 0 auto 12px; border-radius: 50%; overflow: hidden; background: linear-gradient(135deg, #0a1628, #1a2a5a); display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 0 15px rgba(0,255,0,0.3); border: 3px solid #00FF00; }
+        .avatar-upload-wrapper img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .avatar-upload-wrapper .avatar-emoji { font-size: 44px; }
+        .avatar-upload-wrapper input[type="file"] { position: absolute; left: 0; top: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer; }
+        .avatar-upload-hint { text-align: center; font-size: 11px; color: #5a6a7a; margin-bottom: 12px; }
+        .manage-list { max-height: 380px; overflow-y: auto; padding-right: 4px; }
+        .manage-row { display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-radius: 8px; border: 1px solid #e9edf2; background: #fafcff; margin-bottom: 6px; }
         .manage-row:hover { border-color: var(--green); }
+        .manage-row .mr-avatar { width: 42px; height: 42px; border-radius: 50%; background: linear-gradient(135deg, #0a1628, #1a2a5a); display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; overflow: hidden; }
+        .manage-row .mr-avatar img { width: 100%; height: 100%; object-fit: cover; }
         .manage-row .mr-info { flex: 1; min-width: 0; }
         .manage-row .mr-title { font-weight: 600; color: #1a2a4a; font-size: 12px; word-break: break-word; }
         .manage-row .mr-sub { font-size: 10px; color: #5a6a7a; margin-top: 1px; }
         .manage-row .mr-badge { background: var(--green-bg); color: #0a1628; font-size: 9px; padding: 1px 6px; border-radius: 30px; font-weight: 700; margin-left: 4px; }
-        .manage-row .mr-badge.lock { background: #e9edf2; color: #8a9ab5; }
-        .manage-row .btn-del { background: #fee8ea; color: #b03a4a; border: none; padding: 5px 12px; border-radius: 6px; font-weight: 700; font-size: 11px; cursor: pointer; transition: 0.15s; }
+        .manage-row .mr-badge.admin { background: #fff3cd; color: #8a6a10; }
+        .manage-row .btn-edit-emp { background: #fff3cd; color: #8a6a10; border: none; padding: 5px 10px; border-radius: 6px; font-weight: 700; font-size: 11px; cursor: pointer; transition: 0.15s; }
+        .manage-row .btn-edit-emp:hover { background: #ffe8a3; }
+        .manage-row .btn-del { background: #fee8ea; color: #b03a4a; border: none; padding: 5px 10px; border-radius: 6px; font-weight: 700; font-size: 11px; cursor: pointer; transition: 0.15s; }
         .manage-row .btn-del:hover { background: #fdd0d4; }
-        .manage-row .btn-disabled { background: #e9edf2; color: #8a9ab5; border: none; padding: 5px 12px; border-radius: 6px; font-weight: 700; font-size: 11px; cursor: not-allowed; }
+        .manage-row .btn-disabled { background: #e9edf2; color: #8a9ab5; border: none; padding: 5px 10px; border-radius: 6px; font-weight: 700; font-size: 11px; cursor: not-allowed; }
         .wa-phone-input { text-align: left !important; font-size: 15px !important; font-weight: 500 !important; letter-spacing: normal !important; padding: 10px 12px !important; }
         .wa-hint { font-size: 11px; color: #4a6a8a; background: var(--green-bg); border: 1px solid #7ddfb0; border-radius: 6px; padding: 8px 10px; margin-bottom: 8px; line-height: 1.4; }
         #qrReader { width: 100%; max-width: 400px; margin: 0 auto; border-radius: 12px; overflow: hidden; }
@@ -851,8 +866,17 @@
 
     <div class="modal-overlay modal-employee" id="employeeModal">
         <div class="modal-box">
-            <h3>➕ Добавить сотрудника</h3>
-            <div class="sub">Выберите иконку и введите данные</div>
+            <h3 id="empModalTitle">➕ Добавить сотрудника</h3>
+            <div class="sub" id="empModalSub">Выберите фото, роль и введите данные</div>
+
+            <div class="avatar-upload-wrapper" id="avatarUploadWrapper">
+                <div class="avatar-emoji" id="avatarPreview">👤</div>
+                <input type="file" id="empAvatarFile" accept="image/*">
+            </div>
+            <div class="avatar-upload-hint">📷 Нажмите чтобы загрузить фото</div>
+            <button type="button" id="clearAvatarBtn" style="display:block;margin:0 auto 10px;background:#fee8ea;color:#b03a4a;border:none;padding:4px 12px;border-radius:6px;font-size:11px;font-weight:600;cursor:pointer;">✖ Убрать фото</button>
+
+            <label style="font-weight:600;font-size:10px;display:block;color:#4a5a7a;text-transform:uppercase;margin-bottom:6px;text-align:center;">Эмодзи (если нет фото)</label>
             <div class="icon-picker" id="iconPicker">
                 <div class="icon-opt active" data-icon="👤">👤</div>
                 <div class="icon-opt" data-icon="👨">👨</div>
@@ -863,19 +887,32 @@
                 <div class="icon-opt" data-icon="🧔">🧔</div>
                 <div class="icon-opt" data-icon="👱">👱</div>
             </div>
+
+            <label style="font-weight:600;font-size:10px;display:block;color:#4a5a7a;text-transform:uppercase;margin-bottom:6px;text-align:center;">Роль</label>
+            <div class="role-picker" id="rolePicker">
+                <div class="role-opt active" data-role="worker">
+                    <span class="role-emoji">👷</span>
+                    Рабочий
+                </div>
+                <div class="role-opt" data-role="admin">
+                    <span class="role-emoji">👑</span>
+                    Админ
+                </div>
+            </div>
+
             <input type="text" id="newEmpName" placeholder="ФИО сотрудника" maxlength="40">
             <input type="password" id="newEmpPassword" placeholder="Пароль сотрудника" maxlength="20">
             <div class="modal-actions">
-                <button class="btn-confirm" id="saveEmployeeBtn">✅ Добавить</button>
+                <button class="btn-confirm" id="saveEmployeeBtn">✅ Сохранить</button>
                 <button class="btn-cancel" id="cancelEmployeeBtn">Отмена</button>
             </div>
         </div>
     </div>
 
     <div class="modal-overlay" id="employeeManageModal">
-        <div class="modal-box" style="max-width:520px;">
-            <h3>🗑️ Управление сотрудниками</h3>
-            <div class="sub">Удалите уволившихся сотрудников</div>
+        <div class="modal-box" style="max-width:540px;">
+            <h3>👥 Управление сотрудниками</h3>
+            <div class="sub">Редактируйте или удаляйте сотрудников</div>
             <div class="manage-list" id="employeesList"></div>
             <div class="modal-actions">
                 <button class="btn-cancel" id="closeEmployeeManageBtn">Закрыть</button>
@@ -962,7 +999,6 @@
             </div>
         </div>
     </div>
-
     <div class="modal-overlay modal-order" id="viewOrderModal">
         <div class="modal-box" style="max-width:850px;">
             <h3>📄 НАКЛАДНАЯ НА ЗАКАЗ</h3>
@@ -979,7 +1015,6 @@
             </div>
         </div>
     </div>
-
     <div class="modal-overlay modal-close-shift" id="closeShiftModal">
         <div class="modal-box" style="max-width:950px;">
             <h3>📋 СВОДНАЯ НАКЛАДНАЯ</h3>
@@ -1061,9 +1096,7 @@
                 <button class="btn-cancel" id="changePassCancelBtn">Отмена</button>
             </div>
         </div>
-    </div>
-
-    <script>
+    </div>    <script>
         const API_URL = window.location.origin;
         let firebaseReady = true;
 
@@ -1108,9 +1141,9 @@
             const ADMIN_NAME = 'Садрединов В.А';
 
             const DEFAULT_EMPLOYEES = [
-                { id: 1, name: 'Садрединов В.А', password: '130425', icon: '👤' },
-                { id: 2, name: 'Иванов И.И.', password: '1111', icon: '👨' },
-                { id: 3, name: 'Петров П.П.', password: '2222', icon: '🧑' }
+                { id: 1, name: 'Садрединов В.А', password: '130425', icon: '👤', avatar: null, role: 'admin' },
+                { id: 2, name: 'Иванов И.И.', password: '1111', icon: '👨', avatar: null, role: 'worker' },
+                { id: 3, name: 'Петров П.П.', password: '2222', icon: '🧑', avatar: null, role: 'worker' }
             ];
             const DEFAULT_SHOPS = [
                 { id: 1, name: 'ТОО «Солнечный»', buyer: 'Петров П.П.' },
@@ -1128,6 +1161,14 @@
 
             const LOGO_URL = 'https://i.ibb.co.com/0jnqXmBn/2026-09-26-193414.png';
 
+            function isAdmin(emp) {
+                if (!emp) return false;
+                return emp.role === 'admin' || emp.name === ADMIN_NAME;
+            }
+            function isCurrentAdmin() {
+                return isAdmin(currentEmployee);
+            }
+
             function getLogoSVG() {
                 return '<img src="' + LOGO_URL + '" alt="AAS" style="width:100%;height:100%;object-fit:contain;display:block;" onerror="this.style.display=\'none\';this.parentNode.innerHTML=\'<div style=&quot;width:100%;height:100%;background:#00FF00;color:#0a1628;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:24px;border-radius:8px;&quot;>A</div>\'">';
             }
@@ -1140,6 +1181,15 @@
                     '<span class="sub">ДОСТАВКА</span>' +
                     '</div>' +
                     '</div>';
+            }
+
+            function getEmployeeAvatarHTML(emp, size) {
+                const s = size || 48;
+                const fontSize = Math.round(s * 0.5);
+                if (emp && emp.avatar) {
+                    return '<div style="width:' + s + 'px;height:' + s + 'px;border-radius:50%;overflow:hidden;flex-shrink:0;box-shadow:0 0 15px rgba(0,255,0,0.3);"><img src="' + emp.avatar + '" style="width:100%;height:100%;object-fit:cover;display:block;"></div>';
+                }
+                return '<div style="width:' + s + 'px;height:' + s + 'px;border-radius:50%;background:linear-gradient(135deg,#0a1628,#1a2a5a);display:flex;align-items:center;justify-content:center;font-size:' + fontSize + 'px;flex-shrink:0;box-shadow:0 0 15px rgba(0,255,0,0.3);">' + ((emp && emp.icon) || '👤') + '</div>';
             }
 
             function insertLogos() {
@@ -1209,6 +1259,13 @@
                             changed = true;
                         }
                     }
+                    employees.forEach(e => {
+                        if (!e.role) {
+                            e.role = (e.name === ADMIN_NAME) ? 'admin' : 'worker';
+                            changed = true;
+                        }
+                        if (e.avatar === undefined) { e.avatar = null; changed = true; }
+                    });
                 }
                 if (!Array.isArray(shops) || shops.length === 0) {
                     shops = JSON.parse(JSON.stringify(DEFAULT_SHOPS));
@@ -1241,6 +1298,9 @@
             let currentEmployee = null;
             let uploadedImages = [];
             let selectedIcon = '👤';
+            let selectedRole = 'worker';
+            let selectedAvatar = null;
+            let editingEmployeeId = null;
             let adminCallback = null;
             let shiftState = { active: false, employee: null, startTime: null, endTime: null, orders: [] };
             let waPendingPDFData = null;
@@ -1274,11 +1334,17 @@
             const changePasswordBtn = $('changePasswordBtn');
 
             const employeeModal = $('employeeModal');
+            const empModalTitle = $('empModalTitle');
+            const empModalSub = $('empModalSub');
             const iconPicker = $('iconPicker');
+            const rolePicker = $('rolePicker');
             const newEmpName = $('newEmpName');
             const newEmpPassword = $('newEmpPassword');
             const saveEmployeeBtn = $('saveEmployeeBtn');
             const cancelEmployeeBtn = $('cancelEmployeeBtn');
+            const avatarPreview = $('avatarPreview');
+            const empAvatarFile = $('empAvatarFile');
+            const clearAvatarBtn = $('clearAvatarBtn');
 
             const employeeManageModal = $('employeeManageModal');
             const employeesList = $('employeesList');
@@ -1821,7 +1887,8 @@
 
             adminPasswordConfirm.addEventListener('click', () => {
                 const pass = adminPasswordInput.value.trim();
-                if (pass === ADMIN_PASSWORD) {
+                const adminEmp = employees.find(e => isAdmin(e) && e.password === pass);
+                if (adminEmp || pass === ADMIN_PASSWORD) {
                     const cb = adminCallback;
                     closeAdminModal();
                     if (cb) cb();
@@ -1851,12 +1918,11 @@
 
             function openChangePasswordModal() {
                 if (!currentEmployee) return;
-                const isAdmin = currentEmployee.name === ADMIN_NAME;
                 changePassOldInput.value = '';
                 changePassNewInput.value = '';
                 changePassNew2Input.value = '';
                 hideChangePassError();
-                if (isAdmin) {
+                if (isCurrentAdmin()) {
                     changePassSubtitle.textContent = 'Выберите сотрудника и введите новый пароль';
                     changePassHint.innerHTML = '👤 <strong>Админ:</strong> можно менять пароль любому.<br>Свой пароль — только с вводом текущего.';
                     changePassAdminSelectWrap.style.display = 'block';
@@ -1864,7 +1930,7 @@
                     employees.forEach(e => {
                         const opt = document.createElement('option');
                         opt.value = e.id;
-                        opt.textContent = (e.icon || '👤') + ' ' + e.name + (e.name === ADMIN_NAME ? ' (вы)' : '');
+                        opt.textContent = (e.icon || '👤') + ' ' + e.name + (e.id === currentEmployee.id ? ' (вы)' : '');
                         if (e.id === currentEmployee.id) opt.selected = true;
                         changePassEmployeeSelect.appendChild(opt);
                     });
@@ -1886,9 +1952,8 @@
             changePassConfirmBtn.addEventListener('click', () => {
                 if (!currentEmployee) return;
                 hideChangePassError();
-                const isAdmin = currentEmployee.name === ADMIN_NAME;
                 let targetEmp;
-                if (isAdmin) {
+                if (isCurrentAdmin()) {
                     const targetId = parseInt(changePassEmployeeSelect.value);
                     targetEmp = employees.find(e => e.id === targetId);
                     if (!targetEmp) { showChangePassError('Сотрудник не найден'); return; }
@@ -1937,6 +2002,163 @@
             closeEmployeeManageBtn.addEventListener('click', () => employeeManageModal.classList.remove('active'));
             employeeManageModal.addEventListener('click', (e) => { if (e.target === employeeManageModal) employeeManageModal.classList.remove('active'); });
 
+            // ===== ФОТО АВАТАРКИ — СЖАТИЕ =====
+            function compressImage(file, maxSize, callback) {
+                const reader = new FileReader();
+                reader.onload = function(ev) {
+                    const img = new Image();
+                    img.onload = function() {
+                        const canvas = document.createElement('canvas');
+                        let width = img.width;
+                        let height = img.height;
+                        if (width > height) {
+                            if (width > maxSize) { height = Math.round(height * maxSize / width); width = maxSize; }
+                        } else {
+                            if (height > maxSize) { width = Math.round(width * maxSize / height); height = maxSize; }
+                        }
+                        canvas.width = width;
+                        canvas.height = height;
+                        const ctx = canvas.getContext('2d');
+                        ctx.drawImage(img, 0, 0, width, height);
+                        callback(canvas.toDataURL('image/jpeg', 0.85));
+                    };
+                    img.src = ev.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
+
+            function renderAvatarPreview() {
+                if (selectedAvatar) {
+                    avatarPreview.innerHTML = '<img src="' + selectedAvatar + '" style="width:100%;height:100%;object-fit:cover;display:block;">';
+                } else {
+                    avatarPreview.innerHTML = '<span class="avatar-emoji">' + selectedIcon + '</span>';
+                }
+            }
+
+            empAvatarFile.addEventListener('change', function(e) {
+                const file = e.target.files[0];
+                if (!file) return;
+                compressImage(file, 200, function(dataUrl) {
+                    selectedAvatar = dataUrl;
+                    renderAvatarPreview();
+                });
+                e.target.value = '';
+            });
+
+            clearAvatarBtn.addEventListener('click', () => {
+                selectedAvatar = null;
+                renderAvatarPreview();
+            });
+
+            iconPicker.querySelectorAll('.icon-opt').forEach(opt => {
+                opt.addEventListener('click', () => {
+                    iconPicker.querySelectorAll('.icon-opt').forEach(o => o.classList.remove('active'));
+                    opt.classList.add('active');
+                    selectedIcon = opt.dataset.icon;
+                    if (!selectedAvatar) renderAvatarPreview();
+                });
+            });
+
+            rolePicker.querySelectorAll('.role-opt').forEach(opt => {
+                opt.addEventListener('click', () => {
+                    rolePicker.querySelectorAll('.role-opt').forEach(o => o.classList.remove('active'));
+                    opt.classList.add('active');
+                    selectedRole = opt.dataset.role;
+                });
+            });
+
+            function setRoleUI(role) {
+                rolePicker.querySelectorAll('.role-opt').forEach(o => {
+                    o.classList.toggle('active', o.dataset.role === role);
+                });
+                selectedRole = role || 'worker';
+            }
+
+            function setIconUI(icon) {
+                iconPicker.querySelectorAll('.icon-opt').forEach(o => {
+                    o.classList.toggle('active', o.dataset.icon === icon);
+                });
+                selectedIcon = icon || '👤';
+            }
+
+            function openEmployeeModal(editId) {
+                editingEmployeeId = editId || null;
+                if (editingEmployeeId) {
+                    const emp = employees.find(e => e.id === editingEmployeeId);
+                    if (!emp) return;
+                    empModalTitle.textContent = '✏️ Редактировать сотрудника';
+                    empModalSub.textContent = 'Измените данные и сохраните';
+                    newEmpName.value = emp.name || '';
+                    newEmpPassword.value = emp.password || '';
+                    setIconUI(emp.icon || '👤');
+                    setRoleUI(emp.role || 'worker');
+                    selectedAvatar = emp.avatar || null;
+                } else {
+                    empModalTitle.textContent = '➕ Добавить сотрудника';
+                    empModalSub.textContent = 'Выберите фото, роль и введите данные';
+                    newEmpName.value = '';
+                    newEmpPassword.value = '';
+                    setIconUI('👤');
+                    setRoleUI('worker');
+                    selectedAvatar = null;
+                }
+                renderAvatarPreview();
+                employeeModal.classList.add('active');
+                setTimeout(() => newEmpName.focus(), 100);
+            }
+
+            function closeEmployeeModal() {
+                employeeModal.classList.remove('active');
+                editingEmployeeId = null;
+            }
+
+            saveEmployeeBtn.addEventListener('click', () => {
+                const name = newEmpName.value.trim();
+                const password = newEmpPassword.value.trim();
+                if (!name) { alert('Введите ФИО'); newEmpName.focus(); return; }
+                if (!password) { alert('Введите пароль'); newEmpPassword.focus(); return; }
+                if (!editingEmployeeId && employees.some(e => e.name.toLowerCase() === name.toLowerCase())) {
+                    alert('Такой сотрудник уже есть');
+                    return;
+                }
+                if (editingEmployeeId) {
+                    const idx = employees.findIndex(e => e.id === editingEmployeeId);
+                    if (idx === -1) { alert('Ошибка'); return; }
+                    employees[idx].name = name;
+                    employees[idx].password = password;
+                    employees[idx].icon = selectedIcon;
+                    employees[idx].avatar = selectedAvatar;
+                    employees[idx].role = selectedRole;
+                    saveData();
+                    syncEverythingNow();
+                    renderLoginEmployees();
+                    renderEmployeesManageList();
+                    renderArchive();
+                    closeEmployeeModal();
+                    showToast('✅ Сотрудник обновлён');
+                } else {
+                    const newEmp = {
+                        id: nextEmployeeId++,
+                        name: name,
+                        password: password,
+                        icon: selectedIcon,
+                        avatar: selectedAvatar,
+                        role: selectedRole
+                    };
+                    employees.push(newEmp);
+                    saveData();
+                    syncEverythingNow();
+                    renderLoginEmployees();
+                    closeEmployeeModal();
+                    showToast('✅ ' + (selectedAvatar ? '📷' : selectedIcon) + ' ' + name + ' добавлен');
+                }
+            });
+
+            cancelEmployeeBtn.addEventListener('click', closeEmployeeModal);
+            employeeModal.addEventListener('click', (e) => { if (e.target === employeeModal) closeEmployeeModal(); });
+            newEmpName.addEventListener('keydown', (e) => { if (e.key === 'Enter') newEmpPassword.focus(); });
+            newEmpPassword.addEventListener('keydown', (e) => { if (e.key === 'Enter') saveEmployeeBtn.click(); });
+
             function renderEmployeesManageList() {
                 if (employees.length === 0) {
                     employeesList.innerHTML = '<div class="empty-state">Нет сотрудников</div>';
@@ -1944,21 +2166,30 @@
                 }
                 let html = '';
                 employees.forEach(e => {
-                    const isAdmin = e.name === ADMIN_NAME;
-                    const isCurrent = currentEmployee && currentEmployee.id === e.id;
-                    const canDelete = !isAdmin && !isCurrent;
+                    const empIsAdmin = isAdmin(e);
+                    const isSelf = currentEmployee && currentEmployee.id === e.id;
+                    const canDelete = !isSelf;
                     let badges = '';
-                    if (isAdmin) badges += '<span class="mr-badge">АДМИН</span>';
-                    if (isCurrent) badges += '<span class="mr-badge">ВЫ</span>';
+                    if (empIsAdmin) badges += '<span class="mr-badge admin">👑 АДМИН</span>';
+                    else badges += '<span class="mr-badge">👷 РАБОЧИЙ</span>';
+                    if (isSelf) badges += '<span class="mr-badge">ВЫ</span>';
                     html += '<div class="manage-row">' +
+                        '<div class="mr-avatar">' + (e.avatar ? '<img src="' + e.avatar + '">' : (e.icon || '👤')) + '</div>' +
                         '<div class="mr-info">' +
-                        '<div class="mr-title">' + (e.icon || '👤') + ' ' + e.name + badges + '</div>' +
-                        '<div class="mr-sub">ID: ' + e.id + '</div>' +
+                        '<div class="mr-title">' + e.name + badges + '</div>' +
+                        '<div class="mr-sub">ID: ' + e.id + ' • Пароль: ' + (e.password ? '••••' : '—') + '</div>' +
                         '</div>' +
-                        (canDelete ? '<button class="btn-del" data-id="' + e.id + '">🗑️ Удалить</button>' : '<button class="btn-disabled" disabled>🔒</button>') +
+                        '<button class="btn-edit-emp" data-id="' + e.id + '">✏️</button>' +
+                        (canDelete ? '<button class="btn-del" data-id="' + e.id + '">🗑️</button>' : '<button class="btn-disabled" disabled>🔒</button>') +
                         '</div>';
                 });
                 employeesList.innerHTML = html;
+                employeesList.querySelectorAll('.btn-edit-emp').forEach(b => {
+                    b.addEventListener('click', () => {
+                        openEmployeeModal(Number(b.dataset.id));
+                        employeeManageModal.classList.remove('active');
+                    });
+                });
                 employeesList.querySelectorAll('.btn-del').forEach(b => {
                     b.addEventListener('click', () => deleteEmployee(Number(b.dataset.id)));
                 });
@@ -1967,7 +2198,10 @@
             function deleteEmployee(id) {
                 const emp = employees.find(e => e.id === id);
                 if (!emp) return;
-                if (emp.name === ADMIN_NAME) { alert('Нельзя удалить администратора'); return; }
+                if (emp.name === ADMIN_NAME && employees.filter(e => isAdmin(e)).length === 1) {
+                    alert('Нельзя удалить последнего администратора');
+                    return;
+                }
                 if (currentEmployee && currentEmployee.id === id) { alert('Нельзя удалить себя'); return; }
                 if (!confirm('Удалить сотрудника ' + emp.name + '?')) return;
                 employees = employees.filter(e => e.id !== id);
@@ -1977,51 +2211,6 @@
                 renderEmployeesManageList();
                 showToast('🗑️ Сотрудник удалён');
             }
-
-            function openEmployeeModal() {
-                iconPicker.querySelectorAll('.icon-opt').forEach(o => o.classList.remove('active'));
-                iconPicker.querySelector('.icon-opt[data-icon="👤"]').classList.add('active');
-                selectedIcon = '👤';
-                newEmpName.value = '';
-                newEmpPassword.value = '';
-                employeeModal.classList.add('active');
-                setTimeout(() => newEmpName.focus(), 100);
-            }
-
-            function closeEmployeeModal() {
-                employeeModal.classList.remove('active');
-            }
-
-            iconPicker.querySelectorAll('.icon-opt').forEach(opt => {
-                opt.addEventListener('click', () => {
-                    iconPicker.querySelectorAll('.icon-opt').forEach(o => o.classList.remove('active'));
-                    opt.classList.add('active');
-                    selectedIcon = opt.dataset.icon;
-                });
-            });
-
-            saveEmployeeBtn.addEventListener('click', () => {
-                const name = newEmpName.value.trim();
-                const password = newEmpPassword.value.trim();
-                if (!name) { alert('Введите ФИО'); newEmpName.focus(); return; }
-                if (!password) { alert('Введите пароль'); newEmpPassword.focus(); return; }
-                if (employees.some(e => e.name.toLowerCase() === name.toLowerCase())) {
-                    alert('Такой сотрудник уже есть');
-                    return;
-                }
-                const newEmp = { id: nextEmployeeId++, name, password, icon: selectedIcon };
-                employees.push(newEmp);
-                saveData();
-                syncEverythingNow();
-                renderLoginEmployees();
-                closeEmployeeModal();
-                showToast('✅ ' + selectedIcon + ' ' + name + ' добавлен');
-            });
-
-            cancelEmployeeBtn.addEventListener('click', closeEmployeeModal);
-            employeeModal.addEventListener('click', (e) => { if (e.target === employeeModal) closeEmployeeModal(); });
-            newEmpName.addEventListener('keydown', (e) => { if (e.key === 'Enter') newEmpPassword.focus(); });
-            newEmpPassword.addEventListener('keydown', (e) => { if (e.key === 'Enter') saveEmployeeBtn.click(); });
 
             let photoViewerImages = [];
             let photoViewerIndex = 0;
@@ -2197,7 +2386,9 @@
                 employees.forEach(e => {
                     const opt = document.createElement('option');
                     opt.value = e.id;
-                    opt.textContent = (e.icon || '👤') + ' ' + e.name;
+                    const prefix = e.avatar ? '📷' : (e.icon || '👤');
+                    const roleMark = isAdmin(e) ? ' 👑' : '';
+                    opt.textContent = prefix + ' ' + e.name + roleMark;
                     loginEmployeeSelect.appendChild(opt);
                 });
             }
@@ -2224,8 +2415,8 @@
                 mainApp.classList.add('active');
                 loginPassword.value = '';
                 sellerNameInput.value = emp.name;
-                currentEmployeeBadge.textContent = (emp.icon || '👤') + ' ' + emp.name;
-                if (emp.name === ADMIN_NAME) {
+                currentEmployeeBadge.textContent = (emp.avatar ? '📷' : (emp.icon || '👤')) + ' ' + emp.name + (isAdmin(emp) ? ' 👑' : '');
+                if (isAdmin(emp)) {
                     topAddEmployeeBtn.classList.remove('hidden');
                     manageEmployeesBtn.classList.remove('hidden');
                 } else {
@@ -2498,7 +2689,7 @@
             }
 
             function renderArchive() {
-                const isAdmin = currentEmployee && currentEmployee.name === ADMIN_NAME;
+                const empIsAdmin = isCurrentAdmin();
                 let breadcrumbs = '';
                 breadcrumbs += '<span class="bc-item ' + (archiveView.level === 'employees' ? 'current' : '') + '" data-bc="employees">👥 Сотрудники</span>';
                 if (archiveView.employeeName) {
@@ -2518,22 +2709,22 @@
                     });
                 });
                 if (currentEmployee) {
-                    if (isAdmin) {
+                    if (empIsAdmin) {
                         archiveInfoBar.className = 'archive-info-bar admin';
-                        archiveInfoBar.innerHTML = '👤 <strong>Режим администратора:</strong> все сотрудники';
+                        archiveInfoBar.innerHTML = '👑 <strong>Режим администратора:</strong> все сотрудники';
                     } else {
                         archiveInfoBar.className = 'archive-info-bar';
                         archiveInfoBar.innerHTML = '👤 <strong>Мои накладные:</strong> ' + currentEmployee.name;
                     }
                 }
-                if (archiveView.level === 'employees') { renderArchiveEmployeesList(isAdmin); return; }
+                if (archiveView.level === 'employees') { renderArchiveEmployeesList(empIsAdmin); return; }
                 if (archiveView.level === 'shifts') { renderArchiveShiftsList(); return; }
                 if (archiveView.level === 'invoices') { renderArchiveInvoicesList(); return; }
             }
 
-            function renderArchiveEmployeesList(isAdmin) {
+            function renderArchiveEmployeesList(empIsAdmin) {
                 const empNames = new Set();
-                if (isAdmin) shiftArchive.forEach(sh => empNames.add(sh.employee));
+                if (empIsAdmin) shiftArchive.forEach(sh => empNames.add(sh.employee));
                 else if (currentEmployee) shiftArchive.forEach(sh => { if (sh.employee === currentEmployee.name) empNames.add(sh.employee); });
                 if (empNames.size === 0) {
                     archiveContent.innerHTML = '<div class="archive-empty">📭 Нет накладных в архиве</div>';
@@ -2545,11 +2736,10 @@
                     const totalOrders = empShifts.reduce((s, sh) => s + (sh.ordersCount || 0), 0);
                     const totalSum = empShifts.reduce((s, sh) => s + (sh.total || 0), 0);
                     const empObj = employees.find(e => e.name === empName);
-                    const icon = empObj ? (empObj.icon || '👤') : '👤';
                     html += '<div class="archive-emp-card" data-emp="' + empName + '">' +
-                        '<div class="aec-avatar">' + icon + '</div>' +
+                        '<div class="aec-avatar">' + (empObj && empObj.avatar ? '<img src="' + empObj.avatar + '">' : (empObj ? (empObj.icon || '👤') : '👤')) + '</div>' +
                         '<div class="aec-info">' +
-                        '<div class="aec-name">' + empName + '</div>' +
+                        '<div class="aec-name">' + empName + (empObj && isAdmin(empObj) ? ' 👑' : '') + '</div>' +
                         '<div class="aec-stats">📅 Смен: ' + empShifts.length + ' • 📄 Накладных: ' + totalOrders + ' • 💰 ' + totalSum.toFixed(2) + ' ₸</div>' +
                         '</div>' +
                         '<div class="aec-arrow">›</div>' +
@@ -2656,7 +2846,7 @@
                 if (shiftState.active) {
                     shiftStatusBadge.textContent = '🟢 Смена активна';
                     shiftStatusBadge.className = 'shift-status online';
-                    currentEmployeeBadge.textContent = (currentEmployee?.icon || '👤') + ' ' + shiftState.employee;
+                    currentEmployeeBadge.textContent = (currentEmployee?.avatar ? '📷' : (currentEmployee?.icon || '👤')) + ' ' + shiftState.employee;
                     shiftStatusText.textContent = '✅ Активна';
                     shiftEmployeeText.textContent = shiftState.employee;
                     shiftEmployeeSpan.textContent = shiftState.employee;
@@ -2947,7 +3137,7 @@
                 if (cartBadgeEl) cartBadgeEl.textContent = totalItemsInCart;
                 if (cartPositionsEl) cartPositionsEl.textContent = totalPositionsInCart > 0 ? '(' + totalPositionsInCart + ' поз.)' : '';
                 if (archiveBadgeEl) {
-                    if (currentEmployee && currentEmployee.name !== ADMIN_NAME) {
+                    if (currentEmployee && !isCurrentAdmin()) {
                         archiveBadgeEl.textContent = shiftArchive.filter(sh => sh.employee === currentEmployee.name).length;
                     } else {
                         archiveBadgeEl.textContent = shiftArchive.length;
@@ -2992,7 +3182,6 @@
                 renderAll();
             }
 
-            // ===== РЕДАКТИРОВАНИЕ ТОВАРА =====
             function openEditProductModal(id) {
                 const item = stock.find(it => it.id === id);
                 if (!item) return;
@@ -3709,6 +3898,10 @@
                     const state = await apiGetState();
                     if (state.employees && Array.isArray(state.employees) && state.employees.length > 0) {
                         employees = state.employees;
+                        employees.forEach(e => {
+                            if (!e.role) e.role = (e.name === ADMIN_NAME) ? 'admin' : 'worker';
+                            if (e.avatar === undefined) e.avatar = null;
+                        });
                         const maxId = employees.reduce((m, e) => Math.max(m, e.id || 0), 0);
                         if (maxId >= nextEmployeeId) nextEmployeeId = maxId + 1;
                         console.log('☁️ Сотрудники загружены: ' + employees.length);
@@ -3780,10 +3973,14 @@
                 try {
                     const state = await apiGetState();
                     if (state.employees && Array.isArray(state.employees)) {
-                        const localJson = JSON.stringify(employees.map(e => ({id: e.id, name: e.name, password: e.password, icon: e.icon})));
-                        const cloudJson = JSON.stringify(state.employees.map(e => ({id: e.id, name: e.name, password: e.password, icon: e.icon})));
+                        const localJson = JSON.stringify(employees.map(e => ({id: e.id, name: e.name, password: e.password, icon: e.icon, avatar: e.avatar || null, role: e.role || 'worker'})));
+                        const cloudJson = JSON.stringify(state.employees.map(e => ({id: e.id, name: e.name, password: e.password, icon: e.icon, avatar: e.avatar || null, role: e.role || 'worker'})));
                         if (localJson !== cloudJson) {
                             employees = state.employees;
+                            employees.forEach(e => {
+                                if (!e.role) e.role = (e.name === ADMIN_NAME) ? 'admin' : 'worker';
+                                if (e.avatar === undefined) e.avatar = null;
+                            });
                             const maxId = employees.reduce((m, e) => Math.max(m, e.id || 0), 0);
                             if (maxId >= nextEmployeeId) nextEmployeeId = maxId + 1;
                             saveData();
@@ -3868,10 +4065,14 @@
                         }
 
                         if (state.employees && Array.isArray(state.employees)) {
-                            const localJson = JSON.stringify(employees.map(e => ({id: e.id, name: e.name, password: e.password, icon: e.icon})));
-                            const cloudJson = JSON.stringify(state.employees.map(e => ({id: e.id, name: e.name, password: e.password, icon: e.icon})));
+                            const localJson = JSON.stringify(employees.map(e => ({id: e.id, name: e.name, password: e.password, icon: e.icon, avatar: e.avatar || null, role: e.role || 'worker'})));
+                            const cloudJson = JSON.stringify(state.employees.map(e => ({id: e.id, name: e.name, password: e.password, icon: e.icon, avatar: e.avatar || null, role: e.role || 'worker'})));
                             if (localJson !== cloudJson) {
                                 employees = state.employees;
+                                employees.forEach(e => {
+                                    if (!e.role) e.role = (e.name === ADMIN_NAME) ? 'admin' : 'worker';
+                                    if (e.avatar === undefined) e.avatar = null;
+                                });
                                 const maxId = employees.reduce((m, e) => Math.max(m, e.id || 0), 0);
                                 if (maxId >= nextEmployeeId) nextEmployeeId = maxId + 1;
                                 saveData();
@@ -3940,8 +4141,8 @@
                 loginScreen.classList.add('hidden');
                 mainApp.classList.add('active');
                 sellerNameInput.value = currentEmployee.name;
-                currentEmployeeBadge.textContent = (currentEmployee.icon || '👤') + ' ' + currentEmployee.name;
-                if (currentEmployee.name === ADMIN_NAME) {
+                currentEmployeeBadge.textContent = (currentEmployee.avatar ? '📷' : (currentEmployee.icon || '👤')) + ' ' + currentEmployee.name + (isAdmin(currentEmployee) ? ' 👑' : '');
+                if (isAdmin(currentEmployee)) {
                     topAddEmployeeBtn.classList.remove('hidden');
                     manageEmployeesBtn.classList.remove('hidden');
                 }
